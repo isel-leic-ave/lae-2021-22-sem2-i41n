@@ -3,14 +3,13 @@ import kotlin.reflect.full.memberProperties
 
 fun log(obj : Any) {
 
-	val klass = obj.javaClass.kotlin // should be obj::class
+	val klass = obj.javaClass.kotlin // should be: obj::class
 
 	println("${klass.simpleName} {")
-	klass.memberProperties.forEach {
-		prop ->
-			if (prop.visibility == KVisibility.PUBLIC) {
-				println("   ${prop.name}: ${prop.get(obj)}")
-			}
+	klass.memberProperties.forEach { prop ->
+		if (prop.visibility == KVisibility.PUBLIC) {
+			println("   ${prop.name}: ${prop.get(obj)}")
+		}
 	}
 	println("}")
 }
