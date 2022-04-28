@@ -1,6 +1,9 @@
 # Compiled class file
 *.class
 
+# META-INF folder
+**/META-INF
+
 # Log file
 *.log
 
@@ -23,6 +26,7 @@
 hs_err_pid*
 
 # IDE generated files
+**/.idea
 **/.gradle
 **/build
 **/out
