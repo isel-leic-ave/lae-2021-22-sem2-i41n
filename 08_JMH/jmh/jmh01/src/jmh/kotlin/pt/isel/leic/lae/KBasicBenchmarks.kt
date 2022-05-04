@@ -13,9 +13,23 @@ import java.util.*
 @OutputTimeUnit(TimeUnit.NANOSECONDS)
 open class KBasicBenchmark {
 
-	@Benchmark
+	companion object {
+
+		private val listOfWords = listOf("Alfa", "Bravo", "Charlie", "Delta", "Echo", "Foxtrot", "Golf", "Hotel", "India", "Juliett", "Kilo", "Lima", "Mike", "November", "Oscar", "Papa", "Quebec", "Romeo", "Sierra", "Tango", "Uniform", "Victor", "Whiskey", "X-ray", "Yankee", "Zulu")
+
+		private val setOfWords = setOf("Alfa", "Bravo", "Charlie", "Delta", "Echo", "Foxtrot", "Golf", "Hotel", "India", "Juliett", "Kilo", "Lima", "Mike", "November", "Oscar", "Papa", "Quebec", "Romeo", "Sierra", "Tango", "Uniform", "Victor", "Whiskey", "X-ray", "Yankee", "Zulu")
+		
+	}
+
+	//@Benchmark
 	fun emptyMethod() {
 		
 	}
+
+	@Benchmark
+	fun findInList() = listOfWords.contains("Mike")
+
+	@Benchmark
+	fun findInSet() = setOfWords.contains("Mike")
 
 }
